@@ -12,3 +12,4 @@ deployments/
 *.log
 .DS_Store
 Thumbs.db
+about.md
