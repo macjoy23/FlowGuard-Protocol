@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAccount } from "wagmi";
 import { motion } from "framer-motion";
-import { Send, Plus, Trash2, DollarSign } from "lucide-react";
+import { Send, Plus, Trash2, DollarSign, AlertTriangle } from "lucide-react";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
@@ -22,7 +22,7 @@ interface PayrollEntry {
 export function Payroll() {
   const { address } = useAccount();
   const { balance } = useUSDCBalance(address);
-  const { executePayroll, txState, resetTxState } = usePayroll();
+  const { executePayroll, txState, resetTxState, hasPayerRole } = usePayroll(address);
   const [entries, setEntries] = useState<PayrollEntry[]>([
     { address: "", amount: "" },
   ]);
@@ -90,6 +90,19 @@ export function Payroll() {
               </Button>
             </div>
 
+            {!hasPayerRole && address && (
+              <div className="mb-4 flex items-start gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/20">
+                <AlertTriangle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium text-red-400">No Payroll Permission</p>
+                  <p className="text-xs text-text-muted mt-1">
+                    Your wallet does not have PAYER_ROLE on the FlowGuardCore contract.
+                    Ask the admin to run the grant-roles script for your address.
+                  </p>
+                </div>
+              </div>
+            )}
+
             <div className="space-y-4">
               {entries.map((entry, i) => (
                 <div key={i} className="flex gap-3 items-start">
@@ -133,7 +146,7 @@ export function Payroll() {
               <Button
                 variant="primary"
                 size="lg"
-                disabled={!isValid || totalAmount === 0}
+                disabled={!isValid || totalAmount === 0 || !hasPayerRole}
                 onClick={handleExecute}
               >
                 <Send className="w-4 h-4" />
