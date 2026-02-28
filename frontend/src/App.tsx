@@ -28,7 +28,7 @@ function AppLayout({ children }: { children: React.ReactNode }) {
 
 export function App() {
   const location = useLocation();
-  const isLanding = location.pathname === "/";
+  const isLanding = location.pathname === "/" || location.pathname === "";
 
   if (isLanding) {
     return (
@@ -47,13 +47,13 @@ export function App() {
     <AppLayout>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/payroll" element={<Payroll />} />
-          <Route path="/vault" element={<Vault />} />
-          <Route path="/recipients" element={<Recipients />} />
-          <Route path="/compliance" element={<Compliance />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/app" element={<Dashboard />} />
+          <Route path="/app/payroll" element={<Payroll />} />
+          <Route path="/app/vault" element={<Vault />} />
+          <Route path="/app/recipients" element={<Recipients />} />
+          <Route path="/app/compliance" element={<Compliance />} />
+          <Route path="/app/analytics" element={<Analytics />} />
+          <Route path="/app/settings" element={<Settings />} />
         </Routes>
       </AnimatePresence>
     </AppLayout>

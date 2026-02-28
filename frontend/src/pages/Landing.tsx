@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, FileText, Shield, Zap, Globe, Lock, TrendingUp } from "lucide-react";
+import { ArrowRight, Shield, Zap, Globe, Lock, TrendingUp, Bot } from "lucide-react";
 import { VideoBackground } from "@/components/shared/VideoBackground";
 import { ParticlesOverlay } from "@/components/shared/ParticlesOverlay";
 import { GlassPanel } from "@/components/layout/GlassPanel";
@@ -39,7 +39,7 @@ const features = [
       "Immutable compliance registry with IPFS document hashing. Audit-ready from day one.",
   },
   {
-    icon: FileText,
+    icon: Bot,
     title: "Automated Execution",
     description:
       "Agent gateway enables scheduled, signature-verified payroll execution without manual triggers.",
@@ -59,13 +59,6 @@ export function Landing() {
             initial="hidden"
             animate="visible"
           >
-            <motion.div variants={fadeInUp} className="mb-8">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border-glow bg-accent-dim text-xs font-medium text-accent">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                Early access available from May 1, 2026
-              </span>
-            </motion.div>
-
             <motion.h1
               variants={fadeInUp}
               className="text-4xl sm:text-5xl lg:text-7xl font-heading font-bold text-text-primary tracking-tighter leading-[1.1] mb-6"
@@ -94,16 +87,7 @@ export function Landing() {
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </Link>
-              <a
-                href="https://github.com/flowguard"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="outline" size="lg">
-                  <FileText className="w-4 h-4" />
-                  View Docs
-                </Button>
-              </a>
+
             </motion.div>
           </motion.div>
         </GlassPanel>

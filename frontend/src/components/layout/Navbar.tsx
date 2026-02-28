@@ -7,12 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { ConnectButton } from "@/components/web3/ConnectButton";
 import { cn } from "@/lib/utils";
 
-const navLinks = [
-  { label: "Get Started", href: "/app" },
-  { label: "Developers", href: "/app/settings" },
-  { label: "Features", href: "/app/vault" },
-  { label: "Resources", href: "/app/analytics" },
-];
+const navLinks: { label: string; href: string }[] = [];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
