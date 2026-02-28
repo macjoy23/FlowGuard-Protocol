@@ -1,0 +1,132 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/space-grotesk/400.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #05080d;
+    color: #f5f7fa;
+    font-family: "Inter", system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(0, 224, 199, 0.25);
+    color: #f5f7fa;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #05080d;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 220, 0.15);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 220, 0.3);
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background: rgba(15, 20, 30, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(0, 255, 220, 0.15);
+    border-radius: 32px;
+    box-shadow: 0 0 60px rgba(0, 224, 199, 0.08);
+  }
+
+  .glass-panel-sm {
+    background: rgba(15, 20, 30, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(0, 255, 220, 0.12);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 224, 199, 0.06);
+  }
+
+  .glass-panel-xs {
+    background: rgba(15, 20, 30, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 255, 220, 0.1);
+    border-radius: 12px;
+  }
+
+  .glass-input {
+    background: rgba(15, 20, 30, 0.5);
+    border: 1px solid rgba(0, 255, 220, 0.12);
+    border-radius: 12px;
+    color: #f5f7fa;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .glass-input:focus {
+    border-color: rgba(0, 224, 199, 0.4);
+    box-shadow: 0 0 0 3px rgba(0, 224, 199, 0.1);
+  }
+
+  .glow-button {
+    background: #00e0c7;
+    color: #05080d;
+    font-weight: 600;
+    border-radius: 9999px;
+    transition: all 0.25s ease;
+    box-shadow: 0 0 20px rgba(0, 224, 199, 0.2);
+  }
+
+  .glow-button:hover {
+    box-shadow: 0 0 40px rgba(0, 224, 199, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .outline-button {
+    background: transparent;
+    color: #f5f7fa;
+    border: 1px solid rgba(0, 255, 220, 0.2);
+    border-radius: 9999px;
+    transition: all 0.25s ease;
+  }
+
+  .outline-button:hover {
+    border-color: rgba(0, 255, 220, 0.4);
+    box-shadow: 0 0 20px rgba(0, 224, 199, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #f5f7fa 0%, #00e0c7 50%, #1e88e5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}

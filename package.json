@@ -1,0 +1,17 @@
+{
+  "name": "flowguard-protocol",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FlowGuard Protocol — Private Payroll. Global Settlement.",
+  "scripts": {
+    "contracts:compile": "cd contracts && npx hardhat compile",
+    "contracts:test": "cd contracts && npx hardhat test",
+    "contracts:coverage": "cd contracts && npx hardhat coverage",
+    "contracts:gas": "cd contracts && REPORT_GAS=true npx hardhat test",
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "frontend:preview": "cd frontend && npm run preview"
+  },
+  "author": "FlowGuard Protocol",
+  "license": "MIT"
+}
